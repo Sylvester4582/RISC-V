@@ -1,0 +1,612 @@
+WARNING: src/instruction_memory.v:22: $readmemb(testcase.txt): Not enough words in the file for the requested range [0:127].
+
+Instruction memory contents:
+
+Instruction Memory[0] = 00000000010100000000000010010011 (hex: 00500093)
+Instruction Memory[1] = 00000000100000000000000100010011 (hex: 00800113)
+Instruction Memory[2] = 00000000011000000000000110010011 (hex: 00600193)
+Instruction Memory[3] = 00000000100000000000010100010011 (hex: 00800513)
+Instruction Memory[4] = 00000000000000000000001110010011 (hex: 00000393)
+Instruction Memory[5] = 00000000001100010000001000110011 (hex: 00310233)
+Instruction Memory[6] = 01000000000100011000001010110011 (hex: 401182b3)
+Instruction Memory[7] = 00000000001100001110010010110011 (hex: 0030e4b3)
+Instruction Memory[8] = 00000000001100001111010000110011 (hex: 0030f433)
+Instruction Memory[9] = 00000000000001010011001100000011 (hex: 00053303)
+Instruction Memory[10] = 00000000010001010011010000100011 (hex: 00453423)
+Instruction Memory[11] = 00000000000100111000001110010011 (hex: 00138393)
+Instruction Memory[12] = 11111110000100111001110011100011 (hex: fe139ce3)
+Instruction Memory[13] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[14] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[15] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[16] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[17] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[18] = 00000000000000000000000000010011 (hex: 00000013)
+Instruction Memory[19] = 00000000000000000000000000010011 (hex: 00000013)
+VCD info: dumpfile results/main_tb.vcd opened for output.
+PC initialized to 0x0000000000000000
+Immediate Generator: type=xxx value=0000000000000000
+Immediate Generator: type=000 value=0000000000000000
+
+~~~~~ Cycle 1 ~~~~~
+IF Stage:
+PC: 0x0000000000000000
+Instruction: 0x00500093 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000000 (UNKNOWN?)
+
+EX Stage:
+ALU Operation: UNKNOWN?
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Immediate Generator: type=000 value=0000000000000005
+
+~~~~~ Cycle 2 ~~~~~
+IF Stage:
+PC: 0x0000000000000004
+Instruction: 0x00800113 (    ADDI)
+
+ID Stage:
+Instruction: 0x00500093 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Immediate Generator: type=000 value=0000000000000008
+
+~~~~~ Cycle 3 ~~~~~
+IF Stage:
+PC: 0x0000000000000008
+Instruction: 0x00600193 (    ADDI)
+
+ID Stage:
+Instruction: 0x00800113 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Immediate Generator: type=000 value=0000000000000006
+
+~~~~~ Cycle 4 ~~~~~
+IF Stage:
+PC: 0x000000000000000c
+Instruction: 0x00800513 (    ADDI)
+
+ID Stage:
+Instruction: 0x00600193 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Immediate Generator: type=000 value=0000000000000008
+
+~~~~~ Cycle 5 ~~~~~
+IF Stage:
+PC: 0x0000000000000010
+Instruction: 0x00000393 (    ADDI)
+
+ID Stage:
+Instruction: 0x00800513 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x1 = 5 (0x0000000000000005)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x1 = 0000000000000005
+Immediate Generator: type=000 value=0000000000000000
+
+~~~~~ Cycle 6 ~~~~~
+IF Stage:
+PC: 0x0000000000000014
+Instruction: 0x00310233 (     ADD)
+
+ID Stage:
+Instruction: 0x00000393 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x2 = 8 (0x0000000000000008)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x2 = 0000000000000008
+Immediate Generator: type=000 value=0000000000000003
+
+~~~~~ Cycle 7 ~~~~~
+IF Stage:
+PC: 0x0000000000000018
+Instruction: 0x401182b3 (     SUB)
+
+ID Stage:
+Instruction: 0x00310233 (     ADD)
+
+EX Stage:
+ALU Operation:      ADD
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x3 = 6 (0x0000000000000006)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x3 = 0000000000000006
+Immediate Generator: type=000 value=0000000000000401
+
+~~~~~ Cycle 8 ~~~~~
+IF Stage:
+PC: 0x000000000000001c
+Instruction: 0x0030e4b3 (      OR)
+
+ID Stage:
+Instruction: 0x401182b3 (     SUB)
+
+EX Stage:
+ALU Operation:      SUB
+RS1 Data: 8 (0x0000000000000008)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x10 = 8 (0x0000000000000008)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x10 = 0000000000000008
+Immediate Generator: type=000 value=0000000000000003
+
+~~~~~ Cycle 9 ~~~~~
+IF Stage:
+PC: 0x0000000000000020
+Instruction: 0x0030f433 (     AND)
+
+ID Stage:
+Instruction: 0x0030e4b3 (      OR)
+
+EX Stage:
+ALU Operation:       OR
+RS1 Data: 6 (0x0000000000000006)
+RS2 Data: 5 (0x0000000000000005)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x7 = 0 (0x0000000000000000)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x7 = 0000000000000000
+Immediate Generator: type=000 value=0000000000000003
+
+~~~~~ Cycle 10 ~~~~~
+IF Stage:
+PC: 0x0000000000000024
+Instruction: 0x00053303 (      LD)
+
+ID Stage:
+Instruction: 0x0030f433 (     AND)
+
+EX Stage:
+ALU Operation:      AND
+RS1 Data: 5 (0x0000000000000005)
+RS2 Data: 6 (0x0000000000000006)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x4 = 8 (0x0000000000000008)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x4 = 0000000000000008
+Immediate Generator: type=000 value=0000000000000000
+
+~~~~~ Cycle 11 ~~~~~
+IF Stage:
+PC: 0x0000000000000028
+Instruction: 0x00453423 (      SD)
+
+ID Stage:
+Instruction: 0x00053303 (      LD)
+
+EX Stage:
+ALU Operation:       LD
+RS1 Data: 5 (0x0000000000000005)
+RS2 Data: 6 (0x0000000000000006)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x5 = 1 (0x0000000000000001)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x5 = 0000000000000001
+Immediate Generator: type=000 value=0000000000000004
+Immediate Generator: type=001 value=0000000000000008
+
+~~~~~ Cycle 12 ~~~~~
+IF Stage:
+PC: 0x000000000000002c
+Instruction: 0x00138393 (    ADDI)
+
+ID Stage:
+Instruction: 0x00453423 (      SD)
+
+EX Stage:
+ALU Operation:       SD
+RS1 Data: 8 (0x0000000000000008)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x9 = 7 (0x0000000000000007)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x9 = 0000000000000007
+Immediate Generator: type=001 value=0000000000000007
+Immediate Generator: type=000 value=0000000000000001
+
+~~~~~ Cycle 13 ~~~~~
+IF Stage:
+PC: 0x0000000000000030
+Instruction: 0xfe139ce3 (     BNE)
+
+ID Stage:
+Instruction: 0x00138393 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 8 (0x0000000000000008)
+RS2 Data: 8 (0x0000000000000008)
+
+MEM Stage:
+Memory Read: Address=0x0000000000000000 Data=10
+
+WB Stage:
+Register Write: x8 = 4 (0x0000000000000004)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x8 = 0000000000000004
+Immediate Generator: type=000 value=ffffffffffffffe1
+BNE: rs1=0 (0x0000000000000000) rs2=5 (0x0000000000000005) not_equal=1 target=0x0000000000000011 pc=0x0000000000000030 imm=0xffffffffffffffe1
+Immediate Generator: type=010 value=7ffffffffffffffc
+BNE: rs1=0 (0x0000000000000000) rs2=5 (0x0000000000000005) not_equal=1 target=0x800000000000002c pc=0x0000000000000030 imm=0x7ffffffffffffffc
+
+~~~~~ Cycle 14 ~~~~~
+IF Stage:
+PC: 0x0000000000000034
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0xfe139ce3 (     BNE)
+ID Stage Stalled
+
+EX Stage:
+ALU Operation:      BNE
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 5 (0x0000000000000005)
+EX Stage Flushed
+
+MEM Stage:
+Memory Write: Address=0x0000000000000000 Data=8
+
+WB Stage:
+Register Write: x6 = 10 (0x000000000000000a)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+Pipeline Hazard Detected
+
+------------------------------------------------------
+Register Write: x6 = 000000000000000a
+Memory Write: Address=0000000000000000 Data=0000000000000008
+BNE: rs1=0 (0x0000000000000000) rs2=5 (0x0000000000000005) not_equal=1 target=0x7ffffffffffffffc pc=0x0000000000000000 imm=0x7ffffffffffffffc
+Immediate Generator: type=010 value=0000000000000000
+BNE: rs1=0 (0x0000000000000000) rs2=0 (0x0000000000000000) not_equal=0 target=0x0000000000000000 pc=0x0000000000000000 imm=0x0000000000000000
+Immediate Generator: type=000 value=0000000000000000
+
+~~~~~ Cycle 15 ~~~~~
+IF Stage:
+PC: 0x0000000000000034
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000000 (UNKNOWN?)
+
+EX Stage:
+ALU Operation: UNKNOWN?
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Immediate Generator: type=000 value=0000000000000000
+
+~~~~~ Cycle 16 ~~~~~
+IF Stage:
+PC: 0x0000000000000038
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x7 = 1 (0x0000000000000001)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+Register Write: x7 = 0000000000000001
+
+~~~~~ Cycle 17 ~~~~~
+IF Stage:
+PC: 0x000000000000003c
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+
+~~~~~ Cycle 18 ~~~~~
+IF Stage:
+PC: 0x0000000000000040
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+
+~~~~~ Cycle 19 ~~~~~
+IF Stage:
+PC: 0x0000000000000044
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x0 = 0 (0x0000000000000000)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+
+~~~~~ Cycle 20 ~~~~~
+IF Stage:
+PC: 0x0000000000000048
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x0 = 0 (0x0000000000000000)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+
+~~~~~ Cycle 21 ~~~~~
+IF Stage:
+PC: 0x000000000000004c
+Instruction: 0x00000013 (    ADDI)
+
+ID Stage:
+Instruction: 0x00000013 (    ADDI)
+
+EX Stage:
+ALU Operation:     ADDI
+RS1 Data: 0 (0x0000000000000000)
+RS2 Data: 0 (0x0000000000000000)
+
+MEM Stage:
+
+WB Stage:
+Register Write: x0 = 0 (0x0000000000000000)
+
+Hazard/Forward Info:
+Forward A: 00
+Forward B: 00
+
+------------------------------------------------------
+
+~~~~~~~~~ Final Register State ~~~~~~~~~
+x0 = 0 (0x0000000000000000)
+x1 = 5 (0x0000000000000005)
+x2 = 8 (0x0000000000000008)
+x3 = 6 (0x0000000000000006)
+x4 = 8 (0x0000000000000008)
+x5 = 1 (0x0000000000000001)
+x6 = 10 (0x000000000000000a)
+x7 = 1 (0x0000000000000001)
+x8 = 4 (0x0000000000000004)
+x9 = 7 (0x0000000000000007)
+x10 = 8 (0x0000000000000008)
+x11 = 0 (0x0000000000000000)
+x12 = 0 (0x0000000000000000)
+x13 = 0 (0x0000000000000000)
+x14 = 0 (0x0000000000000000)
+x15 = 0 (0x0000000000000000)
+x16 = 0 (0x0000000000000000)
+x17 = 0 (0x0000000000000000)
+x18 = 0 (0x0000000000000000)
+x19 = 0 (0x0000000000000000)
+x20 = 0 (0x0000000000000000)
+x21 = 0 (0x0000000000000000)
+x22 = 0 (0x0000000000000000)
+x23 = 0 (0x0000000000000000)
+x24 = 0 (0x0000000000000000)
+x25 = 0 (0x0000000000000000)
+x26 = 0 (0x0000000000000000)
+x27 = 0 (0x0000000000000000)
+x28 = 0 (0x0000000000000000)
+x29 = 0 (0x0000000000000000)
+x30 = 0 (0x0000000000000000)
+x31 = 0 (0x0000000000000000)
+
+~~~~~~~~~ Final Memory State [1-10] ~~~~~~~~~
+Memory[1] = 20 (0x0000000000000014)
+Memory[2] = 30 (0x000000000000001e)
+Memory[3] = 0 (0x0000000000000000)
+Memory[4] = 0 (0x0000000000000000)
+Memory[5] = 0 (0x0000000000000000)
+Memory[6] = 0 (0x0000000000000000)
+Memory[7] = 0 (0x0000000000000000)
+Memory[8] = 0 (0x0000000000000000)
+Memory[9] = 0 (0x0000000000000000)
+Memory[10] = 0 (0x0000000000000000)
+main_tb.v:50: $finish called at 225 (1s)

@@ -1,0 +1,16 @@
+// how to get no.s in registers... We don't have addi ??
+
+case-1: Let x5=5; x6=6;
+L1: add x17, x5, x6  // x17=11
+    sub x18, x5, x6  // x18=-1
+    or x19, x5, x6   // x19=7
+    and x20, x5, x6  // x20=4
+    bge x7, x0, L1   // Go back to L1
+
+case-2: Let x10=address in memory (index=10) which is an array of integers from 0 to 9
+    ld x5, 24(x10)   // x5=x10[3]=3
+    ld x6, 56(x10)   // x6=x10[7]=7
+    add x7, x5, x6   // x7=x5+x6=10
+    sd x7, 80(x10)    // x10[10]=10
+
+

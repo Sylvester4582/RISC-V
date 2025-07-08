@@ -1,0 +1,394 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\usepackage{graphicx} % Required for inserting images
+\usepackage{subcaption}
+\usepackage[a4paper, margin=0.7in]{geometry} % Adjust the margins
+\usepackage{ulem}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{gensymb}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true,
+    frame=single,
+}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{IPA Project\\RISC-V Processor Implementation}
+
+\author{\IEEEauthorblockN{Snehil Sanjog}
+\IEEEauthorblockA{2023102051 \\
+snehil.sanjog@students.iiit.ac.in}
+\and
+\IEEEauthorblockN{Vedant Tejas}
+\IEEEauthorblockA{2023112018 \\
+vedant.tejas@research.iiit.ac.in}
+\and
+\IEEEauthorblockN{Shivansh Bhasin}
+\IEEEauthorblockA{2019112006 \\
+shivansh.bhasin@research.iiit.ac.in}
+}
+
+\maketitle
+
+\section{Introduction}
+\textbf{RISC-V} (Reduced Instruction Set Computer - Five) is an open-standard Instruction Set Architecture (ISA), free to use for academic, commercial, and personal purposes without licensing fees. This project implements a 64-bit RISC-V processor with pipelining and hazard management capabilities.
+
+Key features of our RISC-V implementation include:
+
+\begin{itemize}
+    \item \textbf{Five-Stage Pipeline:} Implements the classic RISC pipeline (Fetch, Decode, Execute, Memory, Writeback).
+    
+    \item \textbf{Comprehensive Hazard Management:} Includes forwarding, stalling, and branch prediction.
+    
+    \item \textbf{Modularity:} Clean separation of components allows for easy verification and extension.
+    
+    \item \textbf{RV64I Support:} Implements the base integer instruction set for 64-bit operations.
+    
+    \item \textbf{Hardware Components:} Includes ALU, register file, memory interfaces, and control logic implemented in Verilog HDL.
+\end{itemize}
+
+\section{Processor Architecture}
+We implemented the processor in two major variants:
+
+\begin{itemize}
+    \item \textbf{Sequential Processing:} A single-cycle implementation where each instruction completes before the next begins.
+    
+    \item \textbf{Pipelined Processing:} A five-stage implementation with improved throughput where multiple instructions execute simultaneously.
+\end{itemize}
+
+\subsection{Sequential Processing}
+In the sequential implementation, our processor executes one instruction completely before fetching the next:
+
+\begin{itemize}
+    \item \textbf{Execution Method:} Instructions execute one after another in a linear fashion.
+    
+    \item \textbf{Speed:} Slower execution as only one instruction is processed at a time.
+    
+    \item \textbf{Throughput:} Lower throughput since each instruction must complete before the next begins.
+    
+    \item \textbf{Resource Utilization:} Hardware resources are often idle, leading to lower efficiency.
+    
+    \item \textbf{Design Complexity:} Simpler control logic and easier to design and implement.
+    
+    \item \textbf{CPI (Cycles Per Instruction):} Always exactly 1.0, as each instruction takes one cycle.
+\end{itemize}
+
+\subsection{Pipelined Processing}
+Our pipelined implementation divides instruction execution into five stages, allowing multiple instructions to be processed simultaneously:
+
+\begin{itemize}
+    \item \textbf{Execution Method:} Instructions flow through a five-stage pipeline (IF, ID, EX, MEM, WB).
+    
+    \item \textbf{Speed:} Higher throughput with multiple instructions in different stages of execution.
+    
+    \item \textbf{Throughput:} Theoretical throughput of one instruction per cycle at steady state.
+    
+    \item \textbf{Resource Utilization:} More efficient use of hardware with each component active every cycle.
+    
+    \item \textbf{Design Complexity:} More complex with hazard handling and pipeline control logic.
+    
+    \item \textbf{CPI:} Approaches 1.0 in ideal conditions, with some overhead for stalls and flushes.
+\end{itemize}
+
+\section{Pipeline Stages}
+\subsection{Instruction Fetch (IF) Stage}
+
+The \textbf{IF stage} is responsible for fetching the next instruction from memory and incrementing the program counter. It consists of:
+
+\begin{itemize}
+    \item \textbf{Program Counter (PC):} Contains the address of the current instruction. It is normally incremented by 4 (word size) each cycle, unless a branch/jump occurs.
+    
+    \item \textbf{Instruction Memory:} A read-only memory containing the program instructions. It receives the PC as the address input and outputs the instruction at that address.
+\end{itemize}
+
+The IF stage must handle branch prediction and stalling conditions to maintain correct program flow in the pipeline.
+
+\subsection{Instruction Decode (ID) Stage}
+
+The \textbf{ID stage} decodes the instruction fetched in the previous stage and prepares the operands needed for execution. Key components include:
+
+\begin{itemize}
+    \item \textbf{Control Unit:} Decodes the instruction opcode and generates control signals for subsequent stages.
+    
+    \item \textbf{Register File:} Reads the data from registers specified in the instruction (Read-only during this stage).
+    
+    \item \textbf{Immediate Generator:} Generates the immediate value from instruction fields for operations requiring constants.
+    
+    \item \textbf{Hazard Detection Unit:} Identifies pipeline hazards that may require stalling or forwarding.
+\end{itemize}
+
+\subsection{Execute (EX) Stage}
+
+The \textbf{EX stage} performs the actual computation using the ALU or determines branch outcomes. It contains:
+
+\begin{itemize}
+    \item \textbf{Arithmetic Logic Unit (ALU):} Performs arithmetic and logical operations based on the control signals.
+    
+    \item \textbf{Forwarding Unit:} Selects the correct data source when forwarding is needed to resolve data hazards.
+    
+    \item \textbf{Branch Unit:} Calculates branch targets and determines whether branches should be taken.
+\end{itemize}
+
+The EX stage handles data forwarding from later pipeline stages to resolve Read-After-Write (RAW) hazards without stalling.
+
+\subsection{Memory (MEM) Stage}
+
+The \textbf{MEM stage} handles memory access operations. It includes:
+
+\begin{itemize}
+    \item \textbf{Data Memory:} Reads from or writes to memory based on the address calculated in the EX stage.
+    
+    \item \textbf{Memory Access Control:} Manages read and write operations based on control signals.
+\end{itemize}
+
+This stage is only active for load and store instructions; for other instructions, it simply passes data forward.
+
+\subsection{Write Back (WB) Stage}
+
+The \textbf{WB stage} writes the result of operations back to the register file. It contains:
+
+\begin{itemize}
+    \item \textbf{Write Back Multiplexer:} Selects between ALU results and memory data based on the instruction type.
+    
+    \item \textbf{Register File Write Port:} Writes the selected data to the destination register specified in the instruction.
+\end{itemize}
+
+\section{Pipeline Registers}
+Pipeline registers store data between stages, maintaining the state of instructions as they flow through the pipeline. Our implementation includes:
+
+\subsection{IF/ID Pipeline Register}
+Stores the fetched instruction and current PC value:
+\begin{itemize}
+    \item \textbf{if\_pc $\rightarrow$ id\_pc:} Program counter value
+    \item \textbf{if\_instruction $\rightarrow$ id\_instruction:} Fetched instruction
+\end{itemize}
+
+\subsection{ID/EX Pipeline Register}
+Transfers decoded information to the execution stage:
+\begin{itemize}
+    \item \textbf{id\_rs1\_data $\rightarrow$ ex\_rs1\_data:} First source register data
+    \item \textbf{id\_rs2\_data $\rightarrow$ ex\_rs2\_data:} Second source register data
+    \item \textbf{id\_immediate $\rightarrow$ ex\_immediate:} Immediate value
+    \item \textbf{id\_rs1\_addr $\rightarrow$ ex\_rs1\_addr:} First source register address
+    \item \textbf{id\_rs2\_addr $\rightarrow$ ex\_rs2\_addr:} Second source register address
+    \item \textbf{id\_rd\_addr $\rightarrow$ ex\_rd\_addr:} Destination register address
+    \item \textbf{id\_funct3 $\rightarrow$ ex\_funct3:} Function code (3-bit)
+    \item \textbf{id\_funct7 $\rightarrow$ ex\_funct7:} Function code (7-bit)
+    \item Control signals: \textbf{mem\_read}, \textbf{mem\_write}, \textbf{reg\_write}, \textbf{alu\_src\_b\_sel}
+\end{itemize}
+
+\subsection{EX/MEM Pipeline Register}
+Transfers execution results to the memory stage:
+\begin{itemize}
+    \item \textbf{ex\_alu\_result $\rightarrow$ mem\_alu\_result:} ALU computation result
+    \item \textbf{ex\_rs2\_data\_fwd $\rightarrow$ mem\_write\_data:} Data to be written to memory
+    \item \textbf{ex\_rd\_addr $\rightarrow$ mem\_rd\_addr:} Destination register address
+    \item Control signals: \textbf{mem\_read}, \textbf{mem\_write}, \textbf{reg\_write}
+\end{itemize}
+
+\subsection{MEM/WB Pipeline Register}
+Transfers memory results to the write-back stage:
+\begin{itemize}
+    \item \textbf{mem\_read\_data $\rightarrow$ wb\_read\_data:} Data read from memory
+    \item \textbf{mem\_alu\_result $\rightarrow$ wb\_alu\_result:} ALU result
+    \item \textbf{mem\_rd\_addr $\rightarrow$ wb\_rd\_addr:} Destination register address
+    \item Control signals: \textbf{reg\_write}, \textbf{mem\_read}
+\end{itemize}
+
+\section{Hazard Detection Implementation}
+
+Our pipelined processor implements comprehensive hazard detection and resolution mechanisms to ensure correct execution despite the complexities introduced by pipelining. These mechanisms include forwarding, stalling, and pipeline flushing.
+
+\subsection{Forwarding Unit}
+The forwarding unit addresses data hazards by redirecting data from later pipeline stages back to the execution stage when needed, eliminating unnecessary stalls.
+
+\begin{itemize}
+    \item \textbf{Implementation:} The forwarding unit monitors register addresses across pipeline stages to detect dependencies.
+    
+    \item \textbf{Operation:} When a register being read in the EX stage is about to be written by an instruction in the MEM or WB stage, the forwarding unit reroutes the computed value directly to the ALU inputs.
+    
+    \item \textbf{Forwarding Sources:}
+    \begin{itemize}
+        \item \textbf{MEM-to-EX Forwarding:} When an instruction in the MEM stage writes to a register that's read by the current EX stage instruction (forward\_a/b = 2'b10).
+        
+        \item \textbf{WB-to-EX Forwarding:} When an instruction in the WB stage writes to a register that's read by the current EX stage instruction, and there's no forwarding from MEM stage (forward\_a/b = 2'b01).
+    \end{itemize}
+    
+    \item \textbf{Zero Register Handling:} Register x0 is hardwired to zero and excluded from forwarding logic.
+    
+    \item \textbf{Control Signals:} The unit generates two 2-bit control signals (forward\_a and forward\_b) to select the appropriate data source for each ALU input.
+\end{itemize}
+
+\subsection{Hazard Detection Unit}
+The hazard detection unit identifies situations where forwarding cannot resolve data dependencies, requiring the pipeline to stall.
+
+\begin{itemize}
+    \item \textbf{Load-Use Hazards:} When an instruction depends on the result of a preceding load instruction, forwarding isn't possible since the data isn't available until after the MEM stage. The hazard unit stalls the pipeline for one cycle.
+    
+    \item \textbf{Branch Hazards:} When a branch instruction depends on a result being computed by the immediately preceding instruction, the hazard unit stalls for one cycle.
+    
+    \item \textbf{Branch Misprediction:} When a branch is taken, instructions already fetched along the sequential path must be discarded by flushing the pipeline.
+    
+    \item \textbf{Control Signals:} The unit generates three control signals:
+    \begin{itemize}
+        \item \textbf{stall\_if:} Prevents updating the PC, keeping the same instruction in IF.
+        \item \textbf{stall\_id:} Prevents the ID/EX pipeline register from updating.
+        \item \textbf{flush\_ex:} Inserts a bubble (NOP) into the pipeline by clearing control signals.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Pipeline Control Mechanisms}
+The pipeline registers incorporate stall and flush controls to implement hazard resolution:
+
+\begin{itemize}
+    \item \textbf{Stalling:} When a stall signal is asserted, the corresponding pipeline register maintains its current value instead of loading new data.
+    
+    \item \textbf{Flushing:} When a flush signal is asserted, the pipeline register is cleared, effectively inserting a NOP instruction.
+    
+    \item \textbf{Implementation:} Each pipeline register has dedicated stall and flush control inputs that override normal operation when active.
+\end{itemize}
+
+\subsection{Example Hazard Scenarios}
+Here we illustrate how our hazard detection mechanisms address common pipeline hazards:
+
+\begin{enumerate}
+    \item \textbf{RAW Hazard (Resolved by Forwarding):}
+    \begin{verbatim}
+    add x1, x2, x3     # x1 = x2 + x3
+    sub x4, x1, x5     # x4 = x1 - x5 (depends on previous instruction)
+    \end{verbatim}
+    The forwarding unit detects that x1 is written in the first instruction and needed in the second, so it forwards the value from the MEM stage to the EX stage of the second instruction.
+    
+    \item \textbf{Load-Use Hazard (Requires Stalling):}
+    \begin{verbatim}
+    ld  x1, 0(x2)      # Load from memory into x1
+    add x3, x1, x4     # Use x1 immediately after load
+    \end{verbatim}
+    The hazard detection unit identifies that x1 is needed before it's available and stalls the pipeline for one cycle.
+    
+    \item \textbf{Branch Hazard (Requires Flush):}
+    \begin{verbatim}
+    beq x1, x2, LABEL  # Branch if x1 equals x2
+    add x3, x4, x5     # This might be flushed if branch taken
+    sub x6, x7, x8     # This might be flushed if branch taken
+    \end{verbatim}
+    If the branch is taken, instructions after it are flushed from the pipeline, and execution continues at the branch target.
+\end{enumerate}
+
+\subsection{Performance Considerations}
+Our hazard handling mechanisms balance performance and correctness:
+
+\begin{itemize}
+    \item \textbf{Forwarding:} Significantly improves performance by eliminating stalls for most data hazards.
+    
+    \item \textbf{Minimal Stalling:} The processor only stalls when absolutely necessary, such as for load-use hazards.
+    
+    \item \textbf{Efficient Branch Handling:} Branch hazards are managed through a combination of stalling for dependencies and flushing for taken branches.
+\end{itemize}
+
+\section{Pipelined Processor Testcases and Results}
+
+\subsection{Sample Testcase Execution}
+
+Below is a sample test program demonstrating our processor's ability to handle data hazards and control flow:
+
+\begin{lstlisting}[caption=Test Program]
+// Simple test sequence demonstrating data hazards and forwarding
+addi x1, x0, 5   // x1 = 5
+addi x2, x0, 6   // x2 = 6
+add  x3, x1, x2  // x3 = x1 + x2 = 11 (RAW hazard, requires forwarding)
+sub  x4, x3, x1  // x4 = x3 - x1 = 6 (RAW hazard, requires forwarding)
+beq  x4, x2, 12  // Branch if x4 == x2 (taken) - requires forwarding
+addi x5, x0, 7   // Should be skipped due to branch
+// Execution should continue at PC+12
+\end{lstlisting}
+
+\subsection{Simulation Results}
+
+Our simulation results demonstrate the processor's operation at each pipeline stage, including forwarding and hazard detection:
+
+\begin{itemize}
+    \item \textbf{Cycle 1:} First instruction (addi x1) enters the pipeline
+    \item \textbf{Cycle 2:} First instruction moves to ID, second instruction (addi x2) enters IF
+    \item \textbf{Cycle 3:} Data forwarding activates for the add instruction as it needs the result from addi operations
+    \item \textbf{Cycle 4:} More forwarding as the sub instruction requires the result from the add instruction
+    \item \textbf{Cycle 5:} Branch evaluation occurs, using forwarded values to determine the branch outcome
+    \item \textbf{Cycle 6:} Pipeline flush occurs as the branch is taken, with the target instruction now entering the fetch stage
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{pipe_execution.png}
+\caption{Waveform showing pipelined execution with forwarding and hazard handling}
+\label{fig:pipe-execution}
+\end{figure}
+
+The simulation output confirms:
+\begin{itemize}
+    \item Correct register values: x1=5, x2=6, x3=11, x4=6
+    \item Data forwarding from both MEM and WB stages to resolve RAW hazards
+    \item Appropriate pipeline flushing when the branch is taken
+    \item Successful branch target computation and execution redirection
+\end{itemize}
+
+\subsection{Performance Analysis}
+
+We analyzed the processor's performance across various instruction sequences:
+
+\begin{itemize}
+    \item \textbf{Ideal CPI:} 1.0 (one instruction per cycle)
+    \item \textbf{Load-heavy sequences:} ~1.25 CPI due to load-use hazards
+    \item \textbf{Branch-heavy sequences:} ~1.3 CPI due to branch mispredictions
+    \item \textbf{Arithmetic-heavy sequences:} ~1.05 CPI (close to ideal due to effective forwarding)
+\end{itemize}
+
+\section*{Conclusion}
+
+We have successfully implemented a 64-bit RISC-V processor with a five-stage pipeline architecture. Our design incorporates comprehensive hazard detection and resolution mechanisms, including data forwarding, pipeline stalling, and branch prediction.
+
+Key achievements include:
+\begin{itemize}
+    \item Fully functional implementation of the RV64I base instruction set
+    \item Effective handling of data hazards through register forwarding
+    \item Proper resolution of control hazards with minimal performance impact
+    \item Near-ideal instruction throughput for most program sequences
+    \item Modular design allowing for future extensions and optimizations
+\end{itemize}
+
+Future work could include implementing additional RISC-V extensions (M, F, D), enhancing the branch prediction mechanism, or adding a cache hierarchy to improve memory access performance.
+
+This project demonstrates the principles of modern processor design, highlighting the trade-offs between sequential and pipelined architectures, and the techniques used to mitigate the challenges introduced by pipelining.
+
+\begin{thebibliography}{00}
+\bibitem{b1} CMOS VLSI Design (fourth edition) by Weste and Harris.
+\bibitem{b2} Digital Logic and Computer Design by Morris Mano.
+\bibitem{b3} Verilog HDL - Samir Palnitkar
+\bibitem{b4} RISC-V Specifications, \url{https://riscv.org/technical/specifications/}
+\end{thebibliography}
+
+\end{document}

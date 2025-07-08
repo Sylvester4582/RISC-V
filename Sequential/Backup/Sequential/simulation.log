@@ -1,0 +1,864 @@
+WARNING: rtl/memory/instruction_memory.v:22: $readmemb(testcase.txt): Not enough words in the file for the requested range [0:127].
+
+Instruction memory contents:
+memory[0] = 00000000001100010000000010110011 (hex: 003100b3)
+memory[1] = 01000000011000101000001000110011 (hex: 40628233)
+memory[2] = 00000000010101000000001110010011 (hex: 00540393)
+memory[3] = 00000000101001001000010001100011 (hex: 00a48463)
+memory[4] = 00000000110001011001011001100011 (hex: 00c59663)
+memory[5] = 00000000100001110011011010000011 (hex: 00873683)
+memory[6] = 00000010111110000011100000100011 (hex: 02f83823)
+memory[7] = 00000001001110010000100010110011 (hex: 013908b3)
+memory[8] = 01000001011010101000101000110011 (hex: 416a8a33)
+memory[9] = 00000000000000000000000000010011 (hex: 00000013)
+memory[10] = 00000000000000000000000000010011 (hex: 00000013)
+memory[11] = 00000000000000000000000000010011 (hex: 00000013)
+memory[12] = 00000000000000000000000000010011 (hex: 00000013)
+memory[13] = 00000000000000000000000000010011 (hex: 00000013)
+memory[14] = 00000000000000000000000000010011 (hex: 00000013)
+memory[15] = 00000000000000000000000000010011 (hex: 00000013)
+memory[16] = 00000000000000000000000000010011 (hex: 00000013)
+memory[17] = 00000000000000000000000000010011 (hex: 00000013)
+memory[18] = 00000000000000000000000000010011 (hex: 00000013)
+memory[19] = 00000000000000000000000000010011 (hex: 00000013)
+Initial register values:
+x0 = 0
+x1 = 1
+x2 = 2
+x3 = 3
+x4 = 4
+x5 = 5
+Data memory initialized with test values:
+memory[0] = 10 (0x000000000000000a)
+memory[1] = 20 (0x0000000000000014)
+memory[2] = 30 (0x000000000000001e)
+PC initialized to 0x0000000000000000
+Immediate Generator: type=xxx value=0000000000000000
+Immediate Generator: type=000 value=0000000000000003
+
+Time=25:
+  PC=0000000000000000
+  Instruction=003100b3 (     ADD)
+  Register Write: x1 = 5 (0x0000000000000005)
+Register Write: x1 = 0000000000000005
+Immediate Generator: type=000 value=0000000000000406
+Register Write: x4 = 0000000000000005
+
+Time=35:
+  PC=0000000000000004
+  Instruction=40628233 (     SUB)
+  Register Write: x4 = 5 (0x0000000000000005)
+Immediate Generator: type=000 value=0000000000000005
+
+Time=45:
+  PC=0000000000000008
+  Instruction=00540393 (    ADDI)
+  Register Write: x7 = 5 (0x0000000000000005)
+Register Write: x7 = 0000000000000005
+Immediate Generator: type=000 value=000000000000000a
+BEQ instruction: rs1=0000000000000000 rs2=0000000000000000 equal=1
+Immediate Generator: type=010 value=0000000000000008
+
+Time=55:
+  PC=000000000000000c
+  Instruction=00a48463 (     BEQ)
+  Branch taken to xxxxxxxxxxxxxxxX
+Immediate Generator: type=010 value=xxxxxxxxxxxxxxxX
+Immediate Generator: type=000 value=xxxxxxxxxxxxxxxx
+
+Time=65:
+  PC=xxxxxxxxxxxxxxxX
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=75:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=85:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=95:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=105:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=115:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=125:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=135:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=145:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=155:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=165:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=175:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=185:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=195:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=205:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=215:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=225:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=235:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=245:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=255:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=265:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=275:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=285:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=295:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=305:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=315:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=325:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=335:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=345:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=355:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=365:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=375:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=385:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=395:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=405:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=415:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=425:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=435:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=445:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=455:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=465:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=475:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=485:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=495:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=505:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=515:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=525:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=535:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=545:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=555:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=565:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=575:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=585:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=595:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=605:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=615:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=625:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=635:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=645:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=655:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=665:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=675:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=685:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=695:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=705:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=715:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=725:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=735:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=745:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=755:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=765:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=775:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=785:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=795:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=805:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=815:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=825:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=835:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=845:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=855:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=865:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=875:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=885:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=895:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=905:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=915:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=925:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=935:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=945:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=955:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=965:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=975:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=985:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=995:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1005:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1015:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1025:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1035:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1045:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1055:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1065:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1075:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1085:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1095:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1105:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1115:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1125:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1135:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1145:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1155:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1165:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1175:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1185:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1195:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1205:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1215:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1225:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1235:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1245:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1255:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1265:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1275:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1285:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1295:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1305:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1315:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1325:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1335:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1345:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1355:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1365:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1375:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1385:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1395:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1405:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1415:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1425:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1435:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1445:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1455:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1465:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1475:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1485:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1495:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1505:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1515:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1525:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1535:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1545:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1555:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1565:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1575:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1585:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1595:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1605:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1615:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1625:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1635:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1645:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1655:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1665:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1675:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1685:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1695:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1705:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1715:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1725:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1735:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1745:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1755:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1765:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1775:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1785:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1795:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1805:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1815:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1825:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1835:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1845:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1855:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1865:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1875:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1885:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1895:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1905:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1915:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1925:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1935:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1945:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1955:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1965:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1975:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1985:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=1995:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=2005:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=2015:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+Time=2025:
+  PC=xxxxxxxxxxxxxxxx
+  Instruction=xxxxxxxx ( UNKNOWN)
+
+=== Starting Result Verification ===
+ADD test passed: x1=5
+Error: SUB test failed. x4=5, expected 1
+Error: LD test failed. x13=0, expected 20
+Error: SD test failed. memory[2]=30, expected 15
+
+Found 3 errors!
+tb/core_tb.v:52: $finish called at 2025 (1s)

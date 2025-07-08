@@ -1,0 +1,1162 @@
+WARNING: rtl/memory/instruction_memory.v:22: $readmemb(testcase.txt): Not enough words in the file for the requested range [0:127].
+
+Instruction memory contents:
+memory[0] = 00000000001100010000000010110011 (hex: 003100b3)
+memory[1] = 01000000011000101000001000110011 (hex: 40628233)
+memory[2] = 00000000010101000000001110010011 (hex: 00540393)
+memory[3] = 00000000101001001000010001100011 (hex: 00a48463)
+memory[4] = 00000000110001011001011001100011 (hex: 00c59663)
+memory[5] = 00000000100001110011011010000011 (hex: 00873683)
+memory[6] = 00000010111110000011100000100011 (hex: 02f83823)
+memory[7] = 00000001001110010000100010110011 (hex: 013908b3)
+memory[8] = 01000001011010101000101000110011 (hex: 416a8a33)
+memory[9] = 00000000000000000000000000010011 (hex: 00000013)
+memory[10] = 00000000000000000000000000010011 (hex: 00000013)
+memory[11] = 00000000000000000000000000010011 (hex: 00000013)
+memory[12] = 00000000000000000000000000010011 (hex: 00000013)
+memory[13] = 00000000000000000000000000010011 (hex: 00000013)
+memory[14] = 00000000000000000000000000010011 (hex: 00000013)
+memory[15] = 00000000000000000000000000010011 (hex: 00000013)
+memory[16] = 00000000000000000000000000010011 (hex: 00000013)
+memory[17] = 00000000000000000000000000010011 (hex: 00000013)
+memory[18] = 00000000000000000000000000010011 (hex: 00000013)
+memory[19] = 00000000000000000000000000010011 (hex: 00000013)
+
+=== Initial Register Values ===
+x9 (branch compare 1) = 5
+x10 (branch compare 2) = 4
+x15 (store data) = 15
+x16 (base addr) = 2
+
+=== Initial Memory Contents ===
+memory[1] = 20 (for LD into x13)
+PC initialized to 0x0000000000000000
+Immediate Generator: type=xxx value=0000000000000000
+Immediate Generator: type=000 value=0000000000000003
+
+Time=25:
+  PC=0000000000000000
+  Instruction=003100b3 (     ADD)
+  Register Write: x1 = 5
+Register Write: x1 = 0000000000000005
+Immediate Generator: type=000 value=0000000000000406
+Register Write: x4 = 0000000000000001
+
+Time=35:
+  PC=0000000000000004
+  Instruction=40628233 (     SUB)
+  Register Write: x4 = 1
+Immediate Generator: type=000 value=0000000000000005
+
+Time=45:
+  PC=0000000000000008
+  Instruction=00540393 (    ADDI)
+  Register Write: x7 = 5
+Register Write: x7 = 0000000000000005
+Immediate Generator: type=000 value=000000000000000a
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=22 equal=<%b> target=0x<%h>
+Immediate Generator: type=010 value=0000000000000008
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=20 equal=<%b> target=0x<%h>
+
+Time=55:
+  PC=000000000000000c
+  Instruction=00a48463 (     BEQ)
+  Branch Instruction:
+    Type:      BEQ
+    Rs1 (x9) = 0
+    Rs2 (x10) = 0
+    Offset = 8
+    Branch taken to 0000000000000014
+  Branch taken to 0000000000000014
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=28 equal=<%b> target=0x<%h>
+Immediate Generator: type=010 value=000000000000080c
+Immediate Generator: type=000 value=0000000000000008
+Memory Read: Address=0x0000000000000000 Data=0 (0x0000000000000000)
+Memory Read: Address=0x0000000000000008 Data=20 (0x0000000000000014)
+
+Time=65:
+  PC=0000000000000014
+  Instruction=00873683 (      LD)
+  LD Operation:
+    Address = 8
+    Memory Index = 1
+    Data Read = 20
+    Target Register = x13
+  Register Write: x13 = 20
+Register Write: x13 = 0000000000000014
+Immediate Generator: type=000 value=000000000000002f
+Immediate Generator: type=001 value=0000000000000030
+Memory Write: Address=0x0000000000000038 Data=15 (0x000000000000000f)
+
+Time=75:
+  PC=0000000000000018
+  Instruction=02f83823 (      SD)
+  SD Operation:
+    Base Address (x16) = 8
+    Offset = 48
+    Effective Address = 56
+    Memory Index = 7
+    Data to Store (x15) = 15
+Immediate Generator: type=001 value=0000000000000011
+Immediate Generator: type=000 value=0000000000000013
+
+Time=85:
+  PC=000000000000001c
+  Instruction=013908b3 (     ADD)
+  Register Write: x17 = 0
+Register Write: x17 = 0000000000000000
+Immediate Generator: type=000 value=0000000000000416
+Register Write: x20 = 0000000000000000
+
+Time=95:
+  PC=0000000000000020
+  Instruction=416a8a33 (     SUB)
+  Register Write: x20 = 0
+Immediate Generator: type=000 value=0000000000000000
+
+Time=105:
+  PC=0000000000000024
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=115:
+  PC=0000000000000028
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=125:
+  PC=000000000000002c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=135:
+  PC=0000000000000030
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=145:
+  PC=0000000000000034
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=155:
+  PC=0000000000000038
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=165:
+  PC=000000000000003c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=175:
+  PC=0000000000000040
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=185:
+  PC=0000000000000044
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=195:
+  PC=0000000000000048
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=205:
+  PC=000000000000004c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=215:
+  PC=0000000000000050
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=225:
+  PC=0000000000000054
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=235:
+  PC=0000000000000058
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=245:
+  PC=000000000000005c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=255:
+  PC=0000000000000060
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=265:
+  PC=0000000000000064
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=275:
+  PC=0000000000000068
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=285:
+  PC=000000000000006c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=295:
+  PC=0000000000000070
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=305:
+  PC=0000000000000074
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=315:
+  PC=0000000000000078
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=325:
+  PC=000000000000007c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=335:
+  PC=0000000000000080
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=345:
+  PC=0000000000000084
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=355:
+  PC=0000000000000088
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=365:
+  PC=000000000000008c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=375:
+  PC=0000000000000090
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=385:
+  PC=0000000000000094
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=395:
+  PC=0000000000000098
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=405:
+  PC=000000000000009c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=415:
+  PC=00000000000000a0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=425:
+  PC=00000000000000a4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=435:
+  PC=00000000000000a8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=445:
+  PC=00000000000000ac
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=455:
+  PC=00000000000000b0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=465:
+  PC=00000000000000b4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=475:
+  PC=00000000000000b8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=485:
+  PC=00000000000000bc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=495:
+  PC=00000000000000c0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=505:
+  PC=00000000000000c4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=515:
+  PC=00000000000000c8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=525:
+  PC=00000000000000cc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=535:
+  PC=00000000000000d0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=545:
+  PC=00000000000000d4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=555:
+  PC=00000000000000d8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=565:
+  PC=00000000000000dc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=575:
+  PC=00000000000000e0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=585:
+  PC=00000000000000e4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=595:
+  PC=00000000000000e8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=605:
+  PC=00000000000000ec
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=615:
+  PC=00000000000000f0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=625:
+  PC=00000000000000f4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=635:
+  PC=00000000000000f8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=645:
+  PC=00000000000000fc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=655:
+  PC=0000000000000100
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=665:
+  PC=0000000000000104
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=675:
+  PC=0000000000000108
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=685:
+  PC=000000000000010c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=695:
+  PC=0000000000000110
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=705:
+  PC=0000000000000114
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=715:
+  PC=0000000000000118
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=725:
+  PC=000000000000011c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=735:
+  PC=0000000000000120
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=745:
+  PC=0000000000000124
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=755:
+  PC=0000000000000128
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=765:
+  PC=000000000000012c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=775:
+  PC=0000000000000130
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=785:
+  PC=0000000000000134
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=795:
+  PC=0000000000000138
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=805:
+  PC=000000000000013c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=815:
+  PC=0000000000000140
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=825:
+  PC=0000000000000144
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=835:
+  PC=0000000000000148
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=845:
+  PC=000000000000014c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=855:
+  PC=0000000000000150
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=865:
+  PC=0000000000000154
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=875:
+  PC=0000000000000158
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=885:
+  PC=000000000000015c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=895:
+  PC=0000000000000160
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=905:
+  PC=0000000000000164
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=915:
+  PC=0000000000000168
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=925:
+  PC=000000000000016c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=935:
+  PC=0000000000000170
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=945:
+  PC=0000000000000174
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=955:
+  PC=0000000000000178
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=965:
+  PC=000000000000017c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=975:
+  PC=0000000000000180
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=985:
+  PC=0000000000000184
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=995:
+  PC=0000000000000188
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1005:
+  PC=000000000000018c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1015:
+  PC=0000000000000190
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1025:
+  PC=0000000000000194
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1035:
+  PC=0000000000000198
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1045:
+  PC=000000000000019c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1055:
+  PC=00000000000001a0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1065:
+  PC=00000000000001a4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1075:
+  PC=00000000000001a8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1085:
+  PC=00000000000001ac
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1095:
+  PC=00000000000001b0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1105:
+  PC=00000000000001b4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1115:
+  PC=00000000000001b8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1125:
+  PC=00000000000001bc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1135:
+  PC=00000000000001c0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1145:
+  PC=00000000000001c4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1155:
+  PC=00000000000001c8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1165:
+  PC=00000000000001cc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1175:
+  PC=00000000000001d0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1185:
+  PC=00000000000001d4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1195:
+  PC=00000000000001d8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1205:
+  PC=00000000000001dc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1215:
+  PC=00000000000001e0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1225:
+  PC=00000000000001e4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1235:
+  PC=00000000000001e8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1245:
+  PC=00000000000001ec
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1255:
+  PC=00000000000001f0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1265:
+  PC=00000000000001f4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1275:
+  PC=00000000000001f8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1285:
+  PC=00000000000001fc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+Immediate Generator: type=000 value=0000000000000003
+Register Write: x1 = 0000000000000005
+
+Time=1295:
+  PC=0000000000000200
+  Instruction=003100b3 (     ADD)
+  Register Write: x1 = 5
+Immediate Generator: type=000 value=0000000000000406
+
+Time=1305:
+  PC=0000000000000204
+  Instruction=40628233 (     SUB)
+  Register Write: x4 = 1
+Register Write: x4 = 0000000000000001
+Immediate Generator: type=000 value=0000000000000005
+Register Write: x7 = 0000000000000005
+
+Time=1315:
+  PC=0000000000000208
+  Instruction=00540393 (    ADDI)
+  Register Write: x7 = 5
+Immediate Generator: type=000 value=000000000000000a
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=534 equal=<%b> target=0x<%h>
+Immediate Generator: type=010 value=0000000000000008
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=532 equal=<%b> target=0x<%h>
+
+Time=1325:
+  PC=000000000000020c
+  Instruction=00a48463 (     BEQ)
+  Branch Instruction:
+    Type:      BEQ
+    Rs1 (x9) = 0
+    Rs2 (x10) = 0
+    Offset = 8
+    Branch taken to 0000000000000214
+  Branch taken to 0000000000000214
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%b>.
+WARNING: rtl/core/branch_unit.v:25: missing argument for $display<%h>.
+BEQ: rs1(x0)=0 rs2(x1)=540 equal=<%b> target=0x<%h>
+Immediate Generator: type=010 value=000000000000080c
+Immediate Generator: type=000 value=0000000000000008
+Memory Read: Address=0x0000000000000000 Data=0 (0x0000000000000000)
+Memory Read: Address=0x0000000000000008 Data=20 (0x0000000000000014)
+Register Write: x13 = 0000000000000014
+
+Time=1335:
+  PC=0000000000000214
+  Instruction=00873683 (      LD)
+  LD Operation:
+    Address = 8
+    Memory Index = 1
+    Data Read = 20
+    Target Register = x13
+  Register Write: x13 = 20
+Immediate Generator: type=000 value=000000000000002f
+Immediate Generator: type=001 value=0000000000000030
+
+Time=1345:
+  PC=0000000000000218
+  Instruction=02f83823 (      SD)
+  SD Operation:
+    Base Address (x16) = 8
+    Offset = 48
+    Effective Address = 56
+    Memory Index = 7
+    Data to Store (x15) = 15
+Memory Write: Address=0x0000000000000038 Data=15 (0x000000000000000f)
+Immediate Generator: type=001 value=0000000000000011
+Immediate Generator: type=000 value=0000000000000013
+Register Write: x17 = 0000000000000000
+
+Time=1355:
+  PC=000000000000021c
+  Instruction=013908b3 (     ADD)
+  Register Write: x17 = 0
+Immediate Generator: type=000 value=0000000000000416
+
+Time=1365:
+  PC=0000000000000220
+  Instruction=416a8a33 (     SUB)
+  Register Write: x20 = 0
+Register Write: x20 = 0000000000000000
+Immediate Generator: type=000 value=0000000000000000
+
+Time=1375:
+  PC=0000000000000224
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1385:
+  PC=0000000000000228
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1395:
+  PC=000000000000022c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1405:
+  PC=0000000000000230
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1415:
+  PC=0000000000000234
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1425:
+  PC=0000000000000238
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1435:
+  PC=000000000000023c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1445:
+  PC=0000000000000240
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1455:
+  PC=0000000000000244
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1465:
+  PC=0000000000000248
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1475:
+  PC=000000000000024c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1485:
+  PC=0000000000000250
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1495:
+  PC=0000000000000254
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1505:
+  PC=0000000000000258
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1515:
+  PC=000000000000025c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1525:
+  PC=0000000000000260
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1535:
+  PC=0000000000000264
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1545:
+  PC=0000000000000268
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1555:
+  PC=000000000000026c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1565:
+  PC=0000000000000270
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1575:
+  PC=0000000000000274
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1585:
+  PC=0000000000000278
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1595:
+  PC=000000000000027c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1605:
+  PC=0000000000000280
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1615:
+  PC=0000000000000284
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1625:
+  PC=0000000000000288
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1635:
+  PC=000000000000028c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1645:
+  PC=0000000000000290
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1655:
+  PC=0000000000000294
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1665:
+  PC=0000000000000298
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1675:
+  PC=000000000000029c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1685:
+  PC=00000000000002a0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1695:
+  PC=00000000000002a4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1705:
+  PC=00000000000002a8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1715:
+  PC=00000000000002ac
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1725:
+  PC=00000000000002b0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1735:
+  PC=00000000000002b4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1745:
+  PC=00000000000002b8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1755:
+  PC=00000000000002bc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1765:
+  PC=00000000000002c0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1775:
+  PC=00000000000002c4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1785:
+  PC=00000000000002c8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1795:
+  PC=00000000000002cc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1805:
+  PC=00000000000002d0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1815:
+  PC=00000000000002d4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1825:
+  PC=00000000000002d8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1835:
+  PC=00000000000002dc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1845:
+  PC=00000000000002e0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1855:
+  PC=00000000000002e4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1865:
+  PC=00000000000002e8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1875:
+  PC=00000000000002ec
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1885:
+  PC=00000000000002f0
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1895:
+  PC=00000000000002f4
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1905:
+  PC=00000000000002f8
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1915:
+  PC=00000000000002fc
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1925:
+  PC=0000000000000300
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1935:
+  PC=0000000000000304
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1945:
+  PC=0000000000000308
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1955:
+  PC=000000000000030c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1965:
+  PC=0000000000000310
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1975:
+  PC=0000000000000314
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1985:
+  PC=0000000000000318
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=1995:
+  PC=000000000000031c
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=2005:
+  PC=0000000000000320
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=2015:
+  PC=0000000000000324
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+Time=2025:
+  PC=0000000000000328
+  Instruction=00000013 (    ADDI)
+  Register Write: x0 = 0
+
+=== Register Contents ===
+x1 = 5 (Expected: 5)
+x2 = 2
+x3 = 3
+x4 = 1 (Expected: 1)
+x5 = 5
+x6 = 4
+x7 = 5 (Expected: 5)
+x8 = 0
+x13 = 20 (Expected: 20 from LD)
+x15 = 15 (SD source data)
+x16 = 8 (SD base address)
+
+=== Memory Contents ===
+memory[1] = 20 (Source for LD -> x13)
+memory[2] = 0 (Expected: 15 from SD)
+memory[3] = 0 (Expected: 15 from SD, addr=24)
+
+=== Memory Operation Results ===
+LD Success: x13 correctly loaded value 20 from memory[1]
+SD Error: memory[2]=0, expected 15
+SD Error: memory[3]=0, expected 15 (at address 24)
+
+=== Test Results ===
+Total Errors: 1
+
+Found 1 errors!
+tb/core_tb.v:52: $finish called at 2025 (1s)
